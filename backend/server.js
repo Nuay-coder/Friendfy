@@ -21,6 +21,14 @@ app.get('/user-admin', (req, res) => {
     res.sendFile(path.join(__dirname, '../Frontend/html/user-admin.html'));
 });
 
+app.get('/home', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Frontend/html/home.html'));
+});
+
+app.get('/reservation', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Frontend/html/reservation.html'));
+});
+
 app.get('/event', (req, res) => {
     res.sendFile(path.join(__dirname, '../Frontend/html/event.html'));
 });
