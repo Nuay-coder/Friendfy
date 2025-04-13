@@ -5,6 +5,11 @@ const port = 3000;
 
 app.use(express.static(path.join(__dirname, '../Frontend')));
 
+
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Frontend/html/login.html'));
+});
+
 app.get('/dashboard-admin', (req, res) => {
     res.sendFile(path.join(__dirname, '../Frontend/html/dashboard-admin.html'));
 });
