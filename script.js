@@ -19,6 +19,52 @@ window.onclick = function (e) {
   }
 };
 
+
+// Gender Chart Initialization
+window.addEventListener('DOMContentLoaded', function() {
+    const genderCtx = document.getElementById('genderChart').getContext('2d');
+    const genderChart = new Chart(genderCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Other', 'Female', 'Non-Binary', 'Male'],
+            datasets: [{
+                data: [10, 32, 11, 47],
+                backgroundColor: [
+                    '#fce762', // Yellow for Other
+                    '#4ade80', // Green for Female
+                    '#ff5d5d', // Red for Non-Binary
+                    '#5bc0eb'  // Blue for Male
+                ],
+                borderWidth: 0,
+                cutout: '60%'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.label + ': ' + context.raw + '%';
+                        }
+                    }
+                }
+            }
+        }
+    });
+});
+
+// Close dropdown when clicking elsewhere
+window.addEventListener('click', function(event) {
+    if (!event.target.matches('#selected-period') && !event.target.matches('#selected-period img')) {
+        document.getElementById('dropdownMenu').style.display = 'none';
+    }
+});
+
 //search
 
 
