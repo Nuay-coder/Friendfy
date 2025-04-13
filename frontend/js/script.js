@@ -65,7 +65,19 @@ window.addEventListener('click', function(event) {
     }
 });
 
-//search
+
+// Search filter
+const searchInput = document.querySelector('.search-input');
+searchInput.addEventListener('input', function () {
+  const query = this.value.toLowerCase();
+  const tableRows = document.querySelectorAll('tbody tr');
+
+  tableRows.forEach(row => {
+    const rowText = row.textContent.toLowerCase();
+    row.style.display = rowText.includes(query) ? '' : 'none';
+  });
+});
+
 
 
 document.addEventListener('DOMContentLoaded', function() {

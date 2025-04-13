@@ -5,7 +5,7 @@ const port = 3000;
 
 app.use(express.static(path.join(__dirname, '../Frontend')));
 
-app.get('/dashboard', (req, res) => {
+app.get('/dashboard-admin', (req, res) => {
     res.sendFile(path.join(__dirname, '../Frontend/html/dashboard-admin.html'));
 });
 

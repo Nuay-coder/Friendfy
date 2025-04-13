@@ -37,6 +37,10 @@ body {
     color: #6A0DAD;
 }
 
+.nav-links a.active {
+    color: #000000;
+  }
+  
 .logo img {
     height: 70px;
     width: auto;
