@@ -9,7 +9,7 @@
 .nav-links a.active {
     color: #000000;
   }
-
+  
 .logo-size {
     
     margin-top: 0%;
@@ -19,6 +19,15 @@
     display: block;
 }
 
+.logo-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .logo-big {
+    height: 180px;
+    width: auto;
+  }
 .welcome {  
     font-size: 800%;
     text-align: center;

@@ -1,3 +1,8 @@
+/* nav: link active -> สีเข้มขึ้นกว่าอันอื่น */
+.nav-links a.active {
+    color: #000000;
+  }
+
 /* Reset */
 * {
     margin: 0;
