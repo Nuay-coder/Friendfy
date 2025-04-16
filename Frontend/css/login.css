@@ -103,10 +103,10 @@ input {
 				0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
-	width: 5000px;     /* ความกว้างของกรอบ */
+	width: 1500px;     /* ความกว้างของกรอบ */
 	max-width: 100%;  /* ไม่ให้เกินขอบจอ */
 
-	min-height: 5000px; /* ความสูงขั้นต่ำ */
+	min-height: 750px; /* ความสูงขั้นต่ำ */
 }
 
 .form-container {
@@ -225,12 +225,11 @@ input {
 }
 
 .social-container a {
-	border: 1px solid #DDDDDD;
 	border-radius: 50%;
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-	margin: 0 5px;
+	margin: 0 20px;
 	height: 40px;
 	width: 40px;
 }

@@ -11,17 +11,19 @@
   <header>
     <nav class="navbar">
       <div class="logo">
-        <img src="/image/logo.png" alt="Friendfy Logo">
+          <img src="image/logo.png" alt="Friendfy Logo">
       </div>
       <ul class="nav-links">
-        <li><a href="/homepage">HOME</a></li>
-        <li><a href="/event">EVENT</a></li>
-        <li><a class="active" href="/reservation">RESERVATION</a></li>
-        <li><a href="/aboutus">ABOUT US</a></li>
-        <li><a href="/support">SUPPORT</a></li>
+          <li><a href="/homepage">HOME</a></li>
+          <li><a href="/event">EVENT</a></li>
+          <li><a href="/reservation">RESERVATION</a></li>
+          <li><a class="active" href="/aboutus">ABOUT US</a></li>
+          <li><a href="/support">SUPPORT</a></li>
       </ul>
       <div>
-        <button class="login-btn">Log in</button>
+          <button class="login-btn">Log in</button>
+      </div>
+  </nav>
       </div>
     </nav>
   </header>
@@ -35,8 +37,8 @@
       <div class="date-section">
         <div class="date-label">Day</div>
         <div class="date-select">
-          <div class="date-value" id="selected-day">30</div>
-          <div class="month-value" id="selected-month">Feb</div>
+          <div class="date-value" id="selected-day">--</div>
+          <div class="month-value" id="selected-month">--</div>
           <div class="dropdown-arrow" id="date-dropdown-toggle">▼</div>
         </div>
         <div class="calendar-popup" id="calendar-popup">
@@ -191,8 +193,7 @@
 
       function initCalendar() {
         renderCalendar(currentMonth, currentYear);
-        selectedDay.textContent = "30";
-        selectedMonth.textContent = monthNames[1];
+
       }
 
       function renderCalendar(month, year) {
@@ -316,37 +317,37 @@
     });
 
     // Search filter
-const searchInput = document.getElementById('search-input');
-searchInput.addEventListener('input', function () {
-  const query = this.value.toLowerCase();
-  const courtItems = document.querySelectorAll('.court-item');
+    const searchInput = document.getElementById('search-input');
+    searchInput.addEventListener('input', function () {
+      const query = this.value.toLowerCase();
+      const courtItems = document.querySelectorAll('.court-item');
 
-  courtItems.forEach(item => {
-    const name = item.querySelector('.court-name').textContent.toLowerCase();
-    item.style.display = name.includes(query) ? 'flex' : 'none';
-  });
-});
+      courtItems.forEach(item => {
+        const name = item.querySelector('.court-name').textContent.toLowerCase();
+        item.style.display = name.includes(query) ? 'flex' : 'none';
+      });
+    });
 
   </script>
 
-<footer>
-  <h3> Friendfy </h3>
-  <div class="socail-logo">
+  <footer>
+    <h3> Friendfy </h3>
+    <div class="socail-logo">
       <img src="image/icons8-tiktok-48.png" alt="tiktok">
       <img src="image/icons8-facebook-48.png" alt="facebook">
       <img src="image/icons8-instagram-48.png" alt="instagram">
-  </div>
-  </div>
-  <ul class="nav-links">
+    </div>
+    </div>
+    <ul class="nav-links">
       <li><a href="/home">HOME</a></li>
       <li><a href="/event">EVENT</a></li>
       <li><a class="active" href="/reservation">RESERVATION</a></li>
       <li><a href="/aboutus">ABOUT US</a></li>
       <li><a href="/support">SUPPORT</a></li>
-  </ul>
-  <div>
+    </ul>
+    <div>
       <p> ©2025 Skibidi DobDob Co., Ltd. | All Rights Reserved</p>
-</footer>
+  </footer>
 </body>
 
 </html>
