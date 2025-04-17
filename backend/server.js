@@ -1,7 +1,11 @@
 const express = require('express');
 const path = require('path');
+const dotenv = require('dotenv')
+dotenv.config()
+
+
 const app = express();
-const port = 3000;
+//const port = 3000;
 
 app.use(express.static(path.join(__dirname, '../Frontend')));
 
@@ -9,6 +13,7 @@ app.use(express.static(path.join(__dirname, '../Frontend')));
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, '../Frontend/html/login.html'));
 });
+
 
 app.get('/dashboard-admin', (req, res) => {
     res.sendFile(path.join(__dirname, '../Frontend/html/dashboard-admin.html'));
@@ -48,6 +53,7 @@ app.get('/support', (req, res) => {
 
 
 
-app.listen(port, () => {
-    console.log(`Server listening on port: ${port}`);
-});
+require('./database');
+app.listen(process.env.PORT, () => {
+    console.log(`Server is up at port ${process.env.PORT}`)
+})
