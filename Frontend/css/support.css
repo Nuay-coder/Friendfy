@@ -1,6 +1,11 @@
+/* nav: link active -> สีเข้มขึ้นกว่าอันอื่น */
+.nav-links a.active {
+    color: #000000;
+}
+
 /* Banner */
 .banner {
-    background-image: url("/image/support/banner-support.png");   
+    background-image: url("image/banner-support.png");
     background-size: cover;
     background-position: center;
     height: 300px;
@@ -16,7 +21,7 @@
 .banner-content {
     position: relative;
     z-index: 2;
-    color: white;
+    color: whitesmoke;
     transform: translateY(30px);
     animation: fadeInUp 1.2s ease-out forwards;
 }
@@ -78,6 +83,7 @@
     justify-content: center;
     gap: 60px;
     padding: 40px 100px;
+    margin-bottom: 60px;
 }
 
 .card {

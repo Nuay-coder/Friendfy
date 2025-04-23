@@ -1,3 +1,4 @@
+<<<<<<< HEAD:Frontend/html/event.html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -206,3 +207,143 @@
 </body>
 
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Event</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="event.css">
+    <script src="https://kit.fontawesome.com/90025d2120.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="image/logo.png" alt="Friendfy Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="homepage.html">HOME</a></li>
+                <li><a class="active" href="event.html">EVENT</a></li>
+                <li><a href="aboutus.html">ABOUT US</a></li>
+                <li><a href="support.html">SUPPORT</a></li>
+            </ul>
+            <div>
+                <button class="login-btn">Join Now</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- event banner -->
+        <section class="e1">
+            <img src="image/event/bas.png" alt="basketball">
+            <div class="content1">
+                <h1>Friendfy Basketball League</h1>
+                <p><i class="fa-solid fa-location-dot"></i> Skibidi basketball courts</p>
+                <div><i class="fa-solid fa-calendar-days"> 24/05/2025</i></div>
+                <button class="details-btn"><span>See Details</span></button>
+            </div>
+        </section>
+        <section class="e2">
+            <!-- event block -->
+            <div class="block">
+                <img src="image/event/football.png" alt="footballfield">
+                <div class="content2">
+                    <h3>Goal Together</h3>
+                    <div class="e-info">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span> Skibidi field</span>
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span>30/05/2025</span>
+                    </div>
+                    <button id="openDetail" class="details-btn"><span>See Details</span></button>
+                </div>
+            </div>
+            <!-- Pop up detail -->
+            <div id="eventDetail" class="detail">
+                <div class="detail-content">
+                    <span class="close">&times;</span>
+                    <img src="image/event/football.png" alt="footballfield">
+                    <div class="detail-body">
+                        <h2><i class="fa-solid fa-futbol"></i>Goal Together</h2>
+                        <p class="underline"><em>Join us for this sport event!</em></p>
+                        <p>Get ready an exciting workout and social experience! Whether you're a football enthusiast or just looking to stay active, this is the perfect place to meet new friends, enjoy a great atmosphere.</p>
+                        <hr class="divider">
+                        <div class="detail-info">
+                            <p><i class="fa-solid fa-location-dot"></i>Skibidi football field </p>
+                            <p><i class="fa-solid fa-calendar"></i> 30 May 2025</p>
+                            <p><i class="fa-solid fa-clock"></i> 6:00 PM → 9:00 PM</p>
+                            <a href="#" class="get-direction"><i class="fa-solid fa-map-pin"></i> Get direction</a>
+                        </div>
+                        <button class="join-btn"><span>Join Now</span></button>
+                    </div>
+                </div>
+            </div>
+            <!-- Center -->
+            <div class="block">
+                <img src="image/event/center.png" alt="center">
+                <div class="content2">
+                    <h3>Friendfy Green Day</h3>
+                    <div class="e-info">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span> Skibidi center</span>
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span>31/05/2025</span>
+                    </div>
+                    <button id="openDetail" class="details-btn"><span>See Details</span></button>
+                </div>
+            </div>
+            <!-- Board Game -->
+            <div class="block">
+                <img src="image/event/board game.jpg" alt="game">
+                <div class="content2">
+                    <h3>Board Game Jam</h3>
+                    <div class="e-info">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span> Skibidi center</span>
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span>05/06/2025</span>
+                    </div>
+                    <button id="openDetail" class="details-btn"><span>See Details</span></button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <h3> Friendfy </h3>
+        <div class="socail-logo">
+            <img src="image/icons8-tiktok-48.png" alt="tiktok">
+            <img src="image/icons8-facebook-48.png" alt="facebook">
+            <img src="image/icons8-instagram-48.png" alt="instagram">
+        </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="homepage.html">HOME</a></li>
+            <li><a class="active" href="event.html">EVENT</a></li>
+            <li><a href="reservation.html">RESERVATION</a></li>
+            <li><a href="aboutus.html">ABOUT US</a></li>
+            <li><a href="support.html">SUPPORT</a></li>
+        </ul>
+        <div>
+            <p> ©2025 Skibidi DobDob Co., Ltd. | All Rights Reserved</p>
+    </footer>
+
+    <!-- JavaScript for pop up  -->
+    <script>
+        const modal = document.getElementById("eventDetail");
+        const openBtn = document.getElementById("openDetail");
+        const closeBtn = document.querySelector(".detail .close");
+      
+        openBtn.onclick = () => modal.style.display = "block";
+        closeBtn.onclick = () => modal.style.display = "none";
+        window.onclick = (e) => {
+          if (e.target === modal) modal.style.display = "block";
+        };
+    </script>
+
+</body>
+
+</html>
+>>>>>>> 1b44089496735619a0c89cb0b027c57341045cc5:Frontend/event.html

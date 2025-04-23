@@ -1,6 +1,11 @@
+/* nav: link active -> สีเข้มขึ้นกว่าอันอื่น */
+.nav-links a.active {
+  color: #000000;
+}
+
 /* Banner */
 .banner {
-  background-image: url("/image/aboutus/banner-about.png"); 
+  background-image: url("image/banner-about.png");
   background-size: cover;
   background-position: center;
   height: 300px;
