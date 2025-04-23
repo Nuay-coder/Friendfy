@@ -4,6 +4,7 @@ const dotenv = require('dotenv')
 dotenv.config()
 
 const loginRoutes = require('./Backend/Routes/loginRoutes');
+
 const session = require('express-session');
 
 
@@ -20,7 +21,6 @@ app.use(session({
 app.use('/Frontend', express.static(path.join(__dirname, 'Frontend')));
 app.use('/js', express.static(path.join(__dirname, 'Frontend/js')));
 app.use('/image', express.static(path.join(__dirname, 'Frontend/image')));
-
 
 app.use(loginRoutes);
 
