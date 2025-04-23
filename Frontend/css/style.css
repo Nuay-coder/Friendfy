@@ -88,3 +88,60 @@ footer h3 {
 footer p {
     margin-top: 10px;
 }
+
+  
+  .display-name {
+    font-weight: 600;
+  }
+  
+  .profile-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #6A0DAD;
+  }
+
+  .profile-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .profile-info:hover {
+    color: #6A0DAD;
+  }
+  
+  .profile-dropdown {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 180px;
+    z-index: 999;
+    flex-direction: column;
+  }
+  
+  .profile-dropdown a {
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .profile-dropdown a:hover {
+    background: #f1f1f1;
+  }
+  
+  

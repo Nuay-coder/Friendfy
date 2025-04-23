@@ -21,11 +21,10 @@
                 <li><a href="/aboutus">ABOUT US</a></li>
                 <li><a href="/support">SUPPORT</a></li>
             </ul>
-            <div>
-                <button class="login-btn" onclick="window.location.href='/login'">Log in</button>
-            </div>
+            <div id="userDisplay"></div>
         </nav>
     </header>
+
     <main>
         <!-- event banner -->
         <section class="e1">
@@ -37,6 +36,7 @@
                 <button class="details-btn"><span>See Details</span></button>
             </div>
         </section>
+
         <section class="e2">
             <!-- event block -->
             <div class="block">
@@ -49,9 +49,10 @@
                         <i class="fa-solid fa-calendar-days"></i>
                         <span>30/05/2025</span>
                     </div>
-                    <button id="openDetail" class="details-btn"><span>See Details</span></button>
+                    <button class="details-btn"><span>See Details</span></button>
                 </div>
             </div>
+
             <!-- Pop up detail -->
             <div id="eventDetail" class="detail">
                 <div class="detail-content">
@@ -60,7 +61,7 @@
                     <div class="detail-body">
                         <h2><i class="fa-solid fa-futbol"></i>Goal Together</h2>
                         <p class="underline"><em>Join us for this sport event!</em></p>
-                        <p>Get ready an exciting workout and social experience! Whether you're a football enthusiast or just looking to stay active, this is the perfect place to meet new friends, enjoy a great atmosphere.</p>
+                        <p>Get ready for an exciting workout and social experience! Whether you're a football enthusiast or just looking to stay active, this is the perfect place to meet new friends, enjoy a great atmosphere.</p>
                         <hr class="divider">
                         <div class="detail-info">
                             <p><i class="fa-solid fa-location-dot"></i>Skibidi football field </p>
@@ -72,6 +73,7 @@
                     </div>
                 </div>
             </div>
+
             <!-- Center -->
             <div class="block">
                 <img src="image/event/center.png" alt="center">
@@ -83,9 +85,10 @@
                         <i class="fa-solid fa-calendar-days"></i>
                         <span>31/05/2025</span>
                     </div>
-                    <button id="openDetail" class="details-btn"><span>See Details</span></button>
+                    <button class="details-btn"><span>See Details</span></button>
                 </div>
             </div>
+
             <!-- Board Game -->
             <div class="block">
                 <img src="image/event/board game.jpg" alt="game">
@@ -97,18 +100,18 @@
                         <i class="fa-solid fa-calendar-days"></i>
                         <span>05/06/2025</span>
                     </div>
-                    <button id="openDetail" class="details-btn"><span>See Details</span></button>
+                    <button class="details-btn"><span>See Details</span></button>
                 </div>
             </div>
         </section>
     </main>
+
     <footer>
         <h3> Friendfy </h3>
         <div class="socail-logo">
             <img src="image/icons8-tiktok-48.png" alt="tiktok">
             <img src="image/icons8-facebook-48.png" alt="facebook">
             <img src="image/icons8-instagram-48.png" alt="instagram">
-        </div>
         </div>
         <ul class="nav-links">
             <li><a href="/homepage">HOME</a></li>
@@ -119,19 +122,85 @@
         </ul>
         <div>
             <p> ©2025 Skibidi DobDob Co., Ltd. | All Rights Reserved</p>
+        </div>
     </footer>
 
-    <!-- JavaScript for pop up  -->
+    <!-- JavaScript for pop up -->
     <script>
+        // ปิดเปิด modal
         const modal = document.getElementById("eventDetail");
-        const openBtn = document.getElementById("openDetail");
+        const openBtns = document.querySelectorAll(".details-btn");  // เปลี่ยนจาก id เป็น class
         const closeBtn = document.querySelector(".detail .close");
-      
-        openBtn.onclick = () => modal.style.display = "block";
-        closeBtn.onclick = () => modal.style.display = "none";
-        window.onclick = (e) => {
-          if (e.target === modal) modal.style.display = "block";
+
+        // เปิด modal เมื่อกดปุ่ม See Details
+        openBtns.forEach(btn => {
+            btn.onclick = () => {
+                modal.style.display = "block";
+            };
+        });
+
+        // ปิด modal
+        closeBtn.onclick = () => {
+            modal.style.display = "none";
         };
+
+        // ปิด modal เมื่อคลิกนอกพื้นที่
+        window.onclick = (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+
+        // ตรวจสอบสถานะผู้ใช้งาน
+        window.onload = function () {
+            fetch('/get-user')
+                .then(res => res.json())
+                .then(data => {
+                    const userDisplay = document.getElementById("userDisplay");
+
+                    if (data.display_name) {
+                        userDisplay.innerHTML = `
+  <div class="profile-info" id="profileBtn">
+    <span class="display-name">${data.display_name}</span>
+    <img src="Frontend/image/icon-profile.png" class="profile-img">
+  </div>
+  <div class="profile-dropdown" id="profileDropdown">
+    <a href="/account"><i class="fa-solid fa-user"></i> Account</a>
+    <a href="/service"><i class="fa-solid fa-briefcase"></i> Service</a>
+    <a href="/setting"><i class="fa-solid fa-gear"></i> Setting</a>
+    <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
+  </div>
+`;
+
+
+                    } else {
+                        userDisplay.innerHTML = `
+                            <button class="login-btn" onclick="window.location.href='/login'">
+                                Log in
+                            </button>`;
+                    }
+                })
+                .catch(err => {
+                    console.log("Not logged in");
+                    const userDisplay = document.getElementById("userDisplay");
+                    userDisplay.innerHTML = `
+                        <button class="login-btn" onclick="window.location.href='/login'">
+                            Log in
+                        </button>`;
+                });
+        };
+
+        document.addEventListener("click", (e) => {
+  const profileBtn = document.getElementById("profileBtn");
+  const dropdown = document.getElementById("profileDropdown");
+
+  if (profileBtn && profileBtn.contains(e.target)) {
+    dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
+  } else {
+    if (dropdown) dropdown.style.display = "none";
+  }
+});
+
     </script>
 
 </body>
