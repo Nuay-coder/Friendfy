@@ -5,17 +5,18 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Welcome to FRIENDFY</title>
-	<link rel="stylesheet" href="/css/login.css">
+	<link rel="stylesheet" href="/Frontend/css/login.css">
 </head>
 
 <body>
 	<div class="container" id="container">
 		<!-- Sign Up Form -->
 		<div class="form-container sign-up-container">
-			<form action="#">
+			<form action="/api/register" method="POST">
 				<img src="/image/logo.png" class="logo" />
 				<h1>Create Account</h1>
 
+				<input type="text" placeholder="Username" name="display_name" required />
 				<input type="text" placeholder="First Name" name="fname" required />
 				<input type="text" placeholder="Last Name" name="lname" required />
 				<input type="date" name="birth_date" required />
@@ -80,7 +81,7 @@
 		</div>
 	</div>
 
-	<script src="js/login.js"></script>
+	<script src="/js/login.js"></script>
 </body>
 
 </html>
