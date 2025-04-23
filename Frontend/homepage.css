@@ -131,14 +131,14 @@
     border-radius: 20px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     padding: 100px 30px;
-    background-color: #89C7E7;
+    background-color: #f0f4f8;
     cursor: pointer;
     transition: all 0.4s ease;
 }
 
 .card i {
     margin-bottom: 70px;
-    color: white;
+    color: #7a77bc;
     font-size: 100px;
 }
 
@@ -149,7 +149,7 @@
     color: white;
     box-shadow: 0 20px 20px rgba(0,0,0,0.08);
     border-radius: 16px;
-    background-color: #7a77bc; 
+    background-color: #89C7E7; 
     backdrop-filter: blur(50px);
 }
 
