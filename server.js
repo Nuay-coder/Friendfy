@@ -7,10 +7,9 @@ const loginRoutes = require('./Backend/Routes/loginRoutes');
 
 const session = require('express-session');
 
-
-
 const app = express();
 //const port = 3000;
+
 
 app.use(session({
     secret: 'your_secret_key', // เปลี่ยนให้ปลอดภัย
@@ -23,6 +22,7 @@ app.use('/js', express.static(path.join(__dirname, 'Frontend/js')));
 app.use('/image', express.static(path.join(__dirname, 'Frontend/image')));
 
 app.use(loginRoutes);
+
 
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, '/Frontend/html/login.html'));
@@ -75,6 +75,7 @@ app.get('/get-user', (req, res) => {
         res.status(401).json({ message: 'Not logged in' });
     }
 });
+
 
 
 //require('./database');
