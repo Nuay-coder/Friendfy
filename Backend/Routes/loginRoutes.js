@@ -58,7 +58,7 @@ router.post('/api/login', (req, res) => {
                 id: user.id,
                 display_name: user.display_name
             };
-            res.redirect('/event');
+            res.redirect('/homepage');
         } else {
             res.status(401).send('Incorrect password');
         }
