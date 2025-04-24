@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Reservation</title>
+  <link rel="stylesheet" href="/Frontend/css/styles.css" />
+  <link rel="stylesheet" href="/Frontend/css/Reservation.css" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+          <img src="image/logo.png" alt="Friendfy Logo">
+      </div>
+      <ul class="nav-links">
+          <li><a href="/homepage">HOME</a></li>
+          <li><a href="/event">EVENT</a></li>
+          <li><a class="active" href="/reservation">RESERVATION</a></li>
+          <li><a href="/aboutus">ABOUT US</a></li>
+          <li><a href="/support">SUPPORT</a></li>
+      </ul>
+      <div>
+        <button class="login-btn" onclick="window.location.href='/login'">Log in</button>
+      </div>
+  </nav>
+      </div>
+    </nav>
+  </header>
+
+  <p class="text">Make your reservation</p>
+
+  <div class="reservation-container">
+    <!-- Date Section -->
+    <div class="section">
+      <img src="image/Reservation/calendar.png" alt="calendar" class="calendar-icon">
+      <div class="date-section">
+        <div class="date-label">Day</div>
+        <div class="date-select">
+          <div class="date-value" id="selected-day">--</div>
+          <div class="month-value" id="selected-month">--</div>
+          <div class="dropdown-arrow" id="date-dropdown-toggle">▼</div>
+        </div>
+        <div class="calendar-popup" id="calendar-popup">
+          <div class="calendar-header">
+            <button id="prev-month">&lt;</button>
+            <div class="month-year" id="calendar-month-year">February 2025</div>
+            <button id="next-month">&gt;</button>
+          </div>
+          <div class="calendar-days" id="calendar-days">
+            <div class="day-name">Sun</div>
+            <div class="day-name">Mon</div>
+            <div class="day-name">Tue</div>
+            <div class="day-name">Wed</div>
+            <div class="day-name">Thu</div>
+            <div class="day-name">Fri</div>
+            <div class="day-name">Sat</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <!-- Start Time Section -->
+    <div class="section">
+      <div class="time-section">
+        <div class="time-label">Start time</div>
+        <div class="time-select">
+          <div class="time-value" id="start-time">06.00</div>
+          <div class="time-format">p.m.</div>
+          <div class="dropdown-arrow" id="start-time-dropdown-toggle">▼</div>
+        </div>
+        <div class="time-dropdown" id="start-time-dropdown"></div>
+      </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <!-- End Time Section -->
+    <div class="section">
+      <div class="time-section">
+        <div class="time-label">End time</div>
+        <div class="time-select">
+          <div class="time-value" id="end-time">08.00</div>
+          <div class="time-format">p.m.</div>
+          <div class="dropdown-arrow" id="end-time-dropdown-toggle">▼</div>
+        </div>
+        <div class="time-dropdown" id="end-time-dropdown"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-container">
+    <div class="category-dropdown">
+      <div class="category-selector" id="category-selector">
+        <span class="category-text" id="selected-category">Category</span>
+        <span class="category-dropdown-arrow">▼</span>
+      </div>
+      <div class="category-options" id="category-options">
+        <div class="category-option" data-value="all">All Categories</div>
+        <div class="category-option" data-value="football">Football</div>
+        <div class="category-option" data-value="basketball">Basketball</div>
+        <div class="category-option" data-value="badminton">Badminton</div>
+      </div>
+    </div>
+    <div class="search-input-container">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" placeholder="Search" id="search-input">
+    </div>
+  </div>
+
+  <div class="courts-list">
+    <div class="court-item">
+      <div class="court-info">
+        <img src="image/Reservation/football.jpg" alt="Football Court" class="court-image">
+        <div class="court-details">
+          <div class="court-name">Football Courts ⚽</div>
+          <div class="court-status">
+            <span class="status-label">Status :</span>
+            <span class="status-value">Available</span>
+          </div>
+          <div class="court-price">1 hr./ 30 baht</div>
+        </div>
+      </div>
+      <button class="select-button"><span>✓</span> Select</button>
+    </div>
+
+    <div class="court-item">
+      <div class="court-info">
+        <img src="image/Reservation/badminton.png" alt="Badminton Court" class="court-image">
+        <div class="court-details">
+          <div class="court-name">Badminton Courts 🏸</div>
+          <div class="court-status">
+            <span class="status-label">Status :</span>
+            <span class="status-value">Available</span>
+          </div>
+          <div class="court-price">1 hr./ 30 baht</div>
+        </div>
+      </div>
+      <button class="select-button"><span>✓</span> Select</button>
+    </div>
+
+    <div class="court-item">
+      <div class="court-info">
+        <img src="image/Reservation/basketball.jpg" alt="Basketball Court" class="court-image">
+        <div class="court-details">
+          <div class="court-name">Basketball Courts 🏀</div>
+          <div class="court-status">
+            <span class="status-label">Status :</span>
+            <span class="status-value">Available</span>
+          </div>
+          <div class="court-price">1 hr./ 30 baht</div>
+        </div>
+      </div>
+      <button class="select-button"><span>✓</span> Select</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Calendar variables
+      const dateDropdownToggle = document.getElementById('date-dropdown-toggle');
+      const calendarPopup = document.getElementById('calendar-popup');
+      const calendarDays = document.getElementById('calendar-days');
+      const selectedDay = document.getElementById('selected-day');
+      const selectedMonth = document.getElementById('selected-month');
+      const calendarMonthYear = document.getElementById('calendar-month-year');
+      const prevMonthBtn = document.getElementById('prev-month');
+      const nextMonthBtn = document.getElementById('next-month');
+
+      // Time variables
+      const startTimeDropdownToggle = document.getElementById('start-time-dropdown-toggle');
+      const endTimeDropdownToggle = document.getElementById('end-time-dropdown-toggle');
+      const startTimeDropdown = document.getElementById('start-time-dropdown');
+      const endTimeDropdown = document.getElementById('end-time-dropdown');
+      const startTimeDisplay = document.getElementById('start-time');
+      const endTimeDisplay = document.getElementById('end-time');
+
+      // Category filter
+      const categorySelector = document.getElementById('category-selector');
+      const categoryOptions = document.getElementById('category-options');
+      const selectedCategory = document.getElementById('selected-category');
+      const categoryOptionElements = document.querySelectorAll('.category-option');
+
+      // Calendar logic
+      let currentDate = new Date();
+      let currentMonth = currentDate.getMonth();
+      let currentYear = currentDate.getFullYear();
+
+      const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      const fullMonthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+      function initCalendar() {
+        renderCalendar(currentMonth, currentYear);
+
+      }
+
+      function renderCalendar(month, year) {
+        while (calendarDays.children.length > 7) {
+          calendarDays.removeChild(calendarDays.lastChild);
+        }
+
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        calendarMonthYear.textContent = `${fullMonthNames[month]} ${year}`;
+
+        for (let i = 0; i < firstDay; i++) {
+          const emptyDay = document.createElement('div');
+          emptyDay.classList.add('day');
+          calendarDays.appendChild(emptyDay);
+        }
+
+        for (let day = 1; day <= daysInMonth; day++) {
+          const dayElement = document.createElement('div');
+          dayElement.classList.add('day');
+          dayElement.textContent = day;
+
+          if (day === currentDate.getDate() && month === currentDate.getMonth() && year === currentDate.getFullYear()) {
+            dayElement.classList.add('today');
+          }
+
+          dayElement.addEventListener('click', function () {
+            document.querySelectorAll('.day').forEach(d => d.classList.remove('selected'));
+            this.classList.add('selected');
+            selectedDay.textContent = day;
+            selectedMonth.textContent = monthNames[month];
+            calendarPopup.classList.remove('show');
+          });
+
+          calendarDays.appendChild(dayElement);
+        }
+      }
+
+      function initTimeDropdowns() {
+        const timeOptions = ["12.00", "12.30", "01.00", "01.30", "02.00", "02.30", "03.00", "03.30", "04.00", "04.30", "05.00", "05.30", "06.00", "06.30", "07.00", "07.30", "08.00", "08.30", "09.00", "09.30", "10.00"];
+        timeOptions.forEach(time => {
+          const option1 = document.createElement('div');
+          option1.classList.add('time-option');
+          option1.textContent = time;
+          option1.addEventListener('click', () => {
+            startTimeDisplay.textContent = time;
+            startTimeDropdown.classList.remove('show');
+          });
+          startTimeDropdown.appendChild(option1);
+
+          const option2 = document.createElement('div');
+          option2.classList.add('time-option');
+          option2.textContent = time;
+          option2.addEventListener('click', () => {
+            endTimeDisplay.textContent = time;
+            endTimeDropdown.classList.remove('show');
+          });
+          endTimeDropdown.appendChild(option2);
+        });
+      }
+
+      // Toggle functions
+      dateDropdownToggle.onclick = () => calendarPopup.classList.toggle('show');
+      selectedDay.onclick = selectedMonth.onclick = () => calendarPopup.classList.toggle('show');
+      startTimeDropdownToggle.onclick = () => startTimeDropdown.classList.toggle('show');
+      endTimeDropdownToggle.onclick = () => endTimeDropdown.classList.toggle('show');
+      startTimeDisplay.onclick = () => startTimeDropdown.classList.toggle('show');
+      endTimeDisplay.onclick = () => endTimeDropdown.classList.toggle('show');
+
+      prevMonthBtn.onclick = () => {
+        currentMonth--;
+        if (currentMonth < 0) {
+          currentMonth = 11;
+          currentYear--;
+        }
+        renderCalendar(currentMonth, currentYear);
+      };
+
+      nextMonthBtn.onclick = () => {
+        currentMonth++;
+        if (currentMonth > 11) {
+          currentMonth = 0;
+          currentYear++;
+        }
+        renderCalendar(currentMonth, currentYear);
+      };
+
+      document.addEventListener('click', function (e) {
+        if (!e.target.closest('.date-section') && !e.target.closest('.calendar-popup')) {
+          calendarPopup.classList.remove('show');
+        }
+        if (!e.target.closest('#start-time-dropdown') && !e.target.closest('.time-select')) {
+          startTimeDropdown.classList.remove('show');
+        }
+        if (!e.target.closest('#end-time-dropdown') && !e.target.closest('.time-select')) {
+          endTimeDropdown.classList.remove('show');
+        }
+        if (!e.target.closest('.category-dropdown')) {
+          categoryOptions.classList.remove('show');
+        }
+      });
+
+      categorySelector.onclick = () => categoryOptions.classList.toggle('show');
+
+      categoryOptionElements.forEach(option => {
+        option.addEventListener('click', function () {
+          const value = this.getAttribute('data-value');
+          selectedCategory.textContent = this.textContent;
+          categoryOptions.classList.remove('show');
+
+          const courtItems = document.querySelectorAll('.court-item');
+          courtItems.forEach(item => {
+            const courtName = item.querySelector('.court-name').textContent.toLowerCase();
+            item.style.display = (value === 'all' || courtName.includes(value)) ? 'flex' : 'none';
+          });
+        });
+      });
+
+      initCalendar();
+      initTimeDropdowns();
+    });
+
+    // Search filter
+    const searchInput = document.getElementById('search-input');
+    searchInput.addEventListener('input', function () {
+      const query = this.value.toLowerCase();
+      const courtItems = document.querySelectorAll('.court-item');
+
+      courtItems.forEach(item => {
+        const name = item.querySelector('.court-name').textContent.toLowerCase();
+        item.style.display = name.includes(query) ? 'flex' : 'none';
+      });
+    });
+
+  </script>
+
+  <footer>
+    <h3> Friendfy </h3>
+    <div class="socail-logo">
+      <img src="image/icons8-tiktok-48.png" alt="tiktok">
+      <img src="image/icons8-facebook-48.png" alt="facebook">
+      <img src="image/icons8-instagram-48.png" alt="instagram">
+    </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/home">HOME</a></li>
+      <li><a href="/event">EVENT</a></li>
+      <li><a class="active" href="/reservation">RESERVATION</a></li>
+      <li><a href="/aboutus">ABOUT US</a></li>
+      <li><a href="/support">SUPPORT</a></li>
+    </ul>
+    <div>
+      <p> ©2025 Skibidi DobDob Co., Ltd. | All Rights Reserved</p>
+  </footer>
+</body>
+
+</html>

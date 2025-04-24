@@ -5,7 +5,7 @@
 
 /* Banner */
 .banner {
-    background-image: url("image/banner-support.png");
+    background-image: url("/image/banner-support.png");
     background-size: cover;
     background-position: center;
     height: 300px;
