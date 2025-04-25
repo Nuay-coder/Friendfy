@@ -121,7 +121,7 @@ footer p {
   .profile-dropdown {
     display: none;
     position: absolute;
-    top: 60px;
+    top: 75px; /* ขยับขึ้นลง */
     right: 10px;
     background: #fff;
     border-radius: 10px;
@@ -129,6 +129,8 @@ footer p {
     width: 180px;
     z-index: 999;
     flex-direction: column;
+    padding: 15px 20px; /* เพิ่มขนาดช่องว่างข้างใน */
+    width: 220px; /* ขยายความกว้างกรอบ */
   }
   
   .profile-dropdown a {

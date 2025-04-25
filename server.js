@@ -76,6 +76,11 @@ app.get('/get-user', (req, res) => {
     }
 });
 
+app.get('/logout', (req, res) => {
+    req.session.destroy(() => {
+        res.redirect('/homepage'); 
+    });
+});
 
 
 //require('./database');

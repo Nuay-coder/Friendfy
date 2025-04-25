@@ -47,3 +47,17 @@ dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
 if (dropdown) dropdown.style.display = "none";
 }
 });
+
+function logout() {
+    fetch('/logout', { method: 'GET' })
+        .then(response => {
+            if (response.ok) {
+                window.location.href = '/'; // ไปหน้า homepage
+            } else {
+                console.error('Logout failed');
+            }
+        })
+        .catch(error => {
+            console.error('Error during logout:', error);
+        });
+}
